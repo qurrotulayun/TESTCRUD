@@ -251,7 +251,7 @@ public class frmMain extends javax.swing.JFrame {
             } else {
                 JK = "P";
             }
-            String SQL = "INSERT INTO t_siswa(NIS, NamaSiswa, JenisKelamin, Kelas, Email, Alamat) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6]),";
+            String SQL = "INSERT INTO t_siswa(NIS, NamaSiswa, JenisKelamin, Kelas, Email, Alamat) " + "VALUES('"+txtNIS.getText()+"','"+txtNama.getText()+"','"+JK+"',"+"'"+txtKelas.getText()+"','"+txtEmail.getText()+"','"+txtAlamat.getText()+"')";
             int status = KoneksiDB.execute(SQL);
             if (status == 1) {
                 JOptionPane.showMessageDialog(this, "Data berhasil ditambahkan","Sukses", JOptionPane.INFORMATION_MESSAGE);
@@ -309,11 +309,8 @@ public class frmMain extends javax.swing.JFrame {
             } else {
                 JK = "P";
             }
-            String SQL = "UPDATE t_siswa SET"
-                        + "WHERE NamaSiswa'"+txtNama.getText()+"',"+"WHERE JenisKelamin='"+JK+"'"
-                        + "WHERE Kelas='"+txtKelas.getText()+"',"+"WHERE Email='"+txtEmail.getText()+"'"
-                        + "WHERE Alamat='"+txtAlamat.getText()+"'"
-                        + "WHERE NIS='"+txtNIS.getText()+"'";
+            String SQL = "UPDATE t_siswa SET NIS='"+txtNIS.getText()+"', NamaSiswa='"+txtNama.getText()+"', JenisKelamin='"+JK+"', Kelas='"+txtKelas.getText()+"', Email='"+txtEmail.getText()+"', Alamat'"+txtAlamat.getText()+"'WHERE NIS = '"+txtNIS.getText()+"' ";
+                        
                         
             int status = KoneksiDB.execute(SQL);
             if (status == 0) {
