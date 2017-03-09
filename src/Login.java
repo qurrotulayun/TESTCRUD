@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         btnSignIn = new javax.swing.JButton();
         txtpass = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -57,8 +58,9 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(180, 70, 120, 30);
         getContentPane().add(txtnama);
-        txtnama.setBounds(140, 110, 180, 30);
+        txtnama.setBounds(150, 110, 180, 30);
 
+        btnSignUp.setBackground(new java.awt.Color(255, 51, 51));
         btnSignUp.setText("Sign UP");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +70,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btnSignUp);
         btnSignUp.setBounds(80, 290, 80, 30);
 
+        btnExit.setBackground(new java.awt.Color(255, 51, 51));
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +80,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btnExit);
         btnExit.setBounds(220, 290, 80, 30);
 
+        btnSignIn.setBackground(new java.awt.Color(255, 51, 51));
         btnSignIn.setText("Sign In");
         btnSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +92,11 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(txtpass);
         txtpass.setBounds(150, 190, 170, 30);
 
-        setBounds(0, 0, 569, 453);
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 490, 420);
+
+        setBounds(0, 0, 502, 453);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
@@ -98,7 +106,7 @@ public class Login extends javax.swing.JFrame {
         
         try {
             try (Statement statement = (Statement) file_koneksi.GetConnection().createStatement()) {
-                statement.executeUpdate("insert into tb_alun(username, password) VALUES ('"+username+"','"+password+"');");
+                statement.executeUpdate("insert into tb_akun(username, password) VALUES ('"+username+"','"+password+"');");
             } JOptionPane.showMessageDialog(null, "Selamat! anda berhasil sign Up");
             
         } catch (Exception t){
@@ -176,6 +184,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnSignUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtnama;
     private javax.swing.JPasswordField txtpass;
     // End of variables declaration//GEN-END:variables
